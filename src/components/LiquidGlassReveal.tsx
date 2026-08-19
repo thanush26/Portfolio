@@ -54,9 +54,9 @@ export const LiquidGlassReveal: React.FC<LiquidGlassRevealProps> = ({
 
     // Single RAF loop updating CSS variables directly on DOM
     const updateMaskPhysics = () => {
-      currentPos.current.x += (targetPos.current.x - currentPos.current.x) * 0.14;
-      currentPos.current.y += (targetPos.current.y - currentPos.current.y) * 0.14;
-      currentRadius.current += (targetRadius.current - currentRadius.current) * 0.12;
+      currentPos.current.x += (targetPos.current.x - currentPos.current.x) * 0.28;
+      currentPos.current.y += (targetPos.current.y - currentPos.current.y) * 0.28;
+      currentRadius.current += (targetRadius.current - currentRadius.current) * 0.20;
 
       glassLayer.style.setProperty('--reveal-x', `${currentPos.current.x.toFixed(1)}px`);
       glassLayer.style.setProperty('--reveal-y', `${currentPos.current.y.toFixed(1)}px`);
@@ -74,7 +74,7 @@ export const LiquidGlassReveal: React.FC<LiquidGlassRevealProps> = ({
 
       if (!isHovered.current) {
         isHovered.current = true;
-        targetRadius.current = 240; // Desktop reveal radius (220-260px)
+        targetRadius.current = 120; // Optimized facial reveal radius (100-130px)
       }
     };
 

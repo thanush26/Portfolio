@@ -112,13 +112,13 @@
   mask-image: radial-gradient(
     circle var(--reveal-radius, 0px) at var(--reveal-x, 50%) var(--reveal-y, 50%),
     black 0%,
-    black 75%,
+    black 70%,
     transparent 100%
   );
   -webkit-mask-image: radial-gradient(
     circle var(--reveal-radius, 0px) at var(--reveal-x, 50%) var(--reveal-y, 50%),
     black 0%,
-    black 75%,
+    black 70%,
     transparent 100%
   );
 }
