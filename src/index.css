@@ -1,17 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-dark: #0a0a0c;
-  --color-bg-card: #121216;
-  --color-bg-surface: #18181f;
-  --color-bg-elevated: #20202a;
-  --color-ivory-default: #f4f3ef;
-  --color-ivory-muted: #9a9996;
-  --color-ivory-dim: #686765;
-  --color-olive-default: #8a9a5b;
-  --color-olive-muted: #556b2f;
-  --color-olive-light: #b2c28a;
-  --color-olive-dark: #2d3520;
+  --color-bg-dark: #08090A;
+  --color-bg-card: #0F1012;
+  --color-bg-surface: #151619;
+  --color-bg-elevated: #1C1E22;
+  --color-ivory-default: #F4F3EF;
+  --color-ivory-muted: #929292;
+  --color-ivory-dim: #5C5C5C;
+  --color-cyber-red: #D52B32;
+  --color-cyber-red-hover: #E8383F;
+  --color-tech-neutral: #9FA8A3;
   
   --font-display: 'Syne', sans-serif;
   --font-editorial: 'Playfair Display', serif;
@@ -21,42 +20,52 @@
 
 @layer base {
   :root {
-    --bg-dark: #0a0a0c;
-    --text-ivory: #f4f3ef;
-    --accent-olive: #8a9a5b;
+    --bg-dark: #08090A;
+    --text-ivory: #F4F3EF;
+    --accent-red: #D52B32;
+    --tech-neutral: #9FA8A3;
   }
 
   body {
-    background-color: #0a0a0c;
-    color: #f4f3ef;
+    background-color: #08090A;
+    color: #F4F3EF;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
   }
 }
 
-/* Subtle editorial grain background */
+/* Editorial Grain & Noise Background */
 .bg-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
-/* Custom minimal scrollbar */
+/* Technical Grid Lines Accent */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Custom Minimal Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0c;
+  background: #08090A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a32;
+  background: #1C1E22;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8a9a5b;
+  background: #D52B32;
 }
 
-/* Editorial Typography utilities */
+/* Editorial Typography Utilities */
 .font-display {
   font-family: 'Syne', sans-serif;
 }
@@ -69,40 +78,55 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Responsive clamp typography to prevent overflow */
-.text-hero-giant {
-  font-size: clamp(3.5rem, 15vw, 16rem);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
+/* Liquid Glass Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.text-section-title {
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  line-height: 1.05;
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Subtle line accents */
-.editorial-border {
-  border-color: rgba(255, 255, 255, 0.08);
+.glass-btn {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.editorial-border-olive {
-  border-color: rgba(138, 154, 91, 0.25);
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(213, 43, 50, 0.4);
+  color: #F4F3EF;
+}
+
+/* CSS Masking for Liquid Glass Reveal */
+.liquid-reveal-mask {
+  mask-image: radial-gradient(
+    circle var(--reveal-radius, 0px) at var(--reveal-x, 50%) var(--reveal-y, 50%),
+    black 0%,
+    black 75%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal-radius, 0px) at var(--reveal-x, 50%) var(--reveal-y, 50%),
+    black 0%,
+    black 75%,
+    transparent 100%
+  );
 }
 
 /* Custom Selection */
 ::selection {
-  background: rgba(138, 154, 91, 0.3);
-  color: #ffffff;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+  background: rgba(213, 43, 50, 0.35);
+  color: #FFFFFF;
 }
 
 @media (prefers-reduced-motion: reduce) {

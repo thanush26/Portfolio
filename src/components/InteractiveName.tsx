@@ -92,7 +92,7 @@ export const InteractiveName: React.FC<InteractiveNameProps> = ({
         
         if (current.highlight > 0.01) {
           el.style.color = `rgba(244, 243, 239, ${0.9 + current.highlight * 0.1})`;
-          el.style.textShadow = `0 0 ${Math.round(current.highlight * 20)}px rgba(138, 154, 91, ${0.3 * current.highlight})`;
+          el.style.textShadow = `0 0 ${Math.round(current.highlight * 20)}px rgba(213, 43, 50, ${0.35 * current.highlight})`;
         } else {
           el.style.color = '';
           el.style.textShadow = '';

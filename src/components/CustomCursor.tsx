@@ -62,19 +62,19 @@ export const CustomCursor: React.FC = () => {
     <>
       {/* Small center dot */}
       <div
-        className="fixed top-0 left-0 w-2 h-2 bg-[#8a9a5b] rounded-full pointer-events-none z-50 mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#D52B32] rounded-full pointer-events-none z-50 mix-blend-difference transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) scale(${isHovered ? 2.5 : 1})`,
         }}
       />
       {/* Outer trailing ring */}
       <div
-        className="fixed top-0 left-0 w-8 h-8 border border-[#8a9a5b]/40 rounded-full pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"
+        className="fixed top-0 left-0 w-8 h-8 border border-[#D52B32]/40 rounded-full pointer-events-none z-50 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"
         style={{
           transform: `translate3d(${trailingPos.x}px, ${trailingPos.y}px, 0) scale(${
             isHovered ? 1.8 : 1
           })`,
-          borderColor: isHovered ? '#8a9a5b' : 'rgba(138, 154, 91, 0.4)',
+          borderColor: isHovered ? '#D52B32' : 'rgba(213, 43, 50, 0.4)',
         }}
       />
     </>
