@@ -74,7 +74,7 @@ export const LiquidGlassReveal: React.FC<LiquidGlassRevealProps> = ({
 
       if (!isHovered.current) {
         isHovered.current = true;
-        targetRadius.current = 110; // Subtle desktop glass lens radius (100-120px)
+        targetRadius.current = 240; // Desktop reveal radius (220-260px)
       }
     };
 
@@ -111,7 +111,7 @@ export const LiquidGlassReveal: React.FC<LiquidGlassRevealProps> = ({
       {/* 2. LIQUID GLASS PORTRAIT REVEAL LAYER (LOCKED PIXEL ALIGNMENT) */}
       <div
         ref={glassLayerRef}
-        className="absolute inset-0 pointer-events-none liquid-reveal-mask opacity-75 select-none"
+        className="absolute inset-0 pointer-events-none liquid-reveal-mask select-none"
         style={{
           willChange: 'mask-image, -webkit-mask-image',
         }}
