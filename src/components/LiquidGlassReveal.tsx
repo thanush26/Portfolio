@@ -30,11 +30,11 @@ export const LiquidGlassReveal: React.FC<LiquidGlassRevealProps> = ({
   useEffect(() => {
     const imgBase = new Image();
     imgBase.src = baseImageSrc;
-    imgBase.onerror = () => setActualBaseSrc('/thanush-portrait.jpg');
+    imgBase.onerror = () => setActualBaseSrc('/images/hero/thanush-base.webp');
 
     const imgGlass = new Image();
     imgGlass.src = glassImageSrc;
-    imgGlass.onerror = () => setActualGlassSrc('/thanush-portrait.jpg');
+    imgGlass.onerror = () => setActualGlassSrc('/images/hero/thanush-base.webp');
   }, [baseImageSrc, glassImageSrc]);
 
   useEffect(() => {
