@@ -1,6 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { Terminal, Code2 } from 'lucide-react';
+import { Terminal, ShieldCheck, Code2, Cpu } from 'lucide-react';
 
 export const About: React.FC = () => {
   const interests = [
@@ -15,68 +17,142 @@ export const About: React.FC = () => {
     'Emerging Tech',
   ];
 
-  return (
-    <section id="about" className="py-24 px-6 md:px-12 border-b border-white/5 bg-[#0a0a0c]">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Top Section Tag */}
-        <div className="flex items-center gap-3 font-mono text-xs text-[#8a9a5b] tracking-widest uppercase mb-4">
-          <span>01 / ABOUT</span>
-          <span className="w-12 h-[1px] bg-[#8a9a5b]/30" />
-        </div>
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.05,
+      },
+    },
+  };
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Title (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#f4f3ef] tracking-tight leading-none">
-              {PERSONAL_INFO.aboutTitle}
-            </h2>
-            <p className="font-editorial italic text-xl text-[#8a9a5b]">
-              Engineering security from the foundation up.
-            </p>
-            <div className="pt-4 flex items-center gap-4 text-xs font-mono text-[#9a9996]">
-              <div className="p-3 border border-white/10 rounded bg-[#121216]">
-                <Terminal className="w-5 h-5 text-[#8a9a5b] mb-1" />
-                <span className="block text-[#f4f3ef]">SEC_RESEARCH</span>
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1] as const,
+      },
+    },
+  };
+
+  return (
+    <section
+      id="about"
+      className="relative py-24 sm:py-32 px-6 md:px-12 border-b border-white/5 bg-[#08090A] bg-grain overflow-hidden"
+    >
+      {/* Background Ambient Radial Glow Node */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#D52B32]/5 rounded-full blur-[160px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-3 font-mono text-xs text-[#D52B32] tracking-widest uppercase mb-12"
+        >
+          <span className="glass-pill px-3 py-1 rounded-sm">02 / ABOUT</span>
+          <span className="w-12 h-[1px] bg-[#D52B32]/30" />
+        </motion.div>
+
+        {/* Main 12-Column Editorial Layout */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {/* Left Column: Title & Telemetry Cards (5 cols) */}
+          <div className="lg:col-span-5 space-y-8">
+            <motion.div variants={itemVariants} className="space-y-4">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#F4F3EF] tracking-tight leading-none">
+                {PERSONAL_INFO.aboutTitle}
+              </h2>
+              <p className="font-editorial italic text-xl sm:text-2xl text-[#D52B32]">
+                Engineering security from the foundation up.
+              </p>
+            </motion.div>
+
+            {/* Technical Telemetry Glass Badges */}
+            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
+              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+                  <Terminal className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block text-[#F4F3EF] font-semibold">SEC_RESEARCH</span>
+                  <span className="text-[11px] text-[#9FA8A3]">VULN_AUDITING</span>
+                </div>
               </div>
-              <div className="p-3 border border-white/10 rounded bg-[#121216]">
-                <Code2 className="w-5 h-5 text-[#8a9a5b] mb-1" />
-                <span className="block text-[#f4f3ef]">DEV_FOCUSED</span>
+
+              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+                  <Code2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block text-[#F4F3EF] font-semibold">DEV_FOCUSED</span>
+                  <span className="text-[11px] text-[#9FA8A3]">SECURE_BACKEND</span>
+                </div>
               </div>
-            </div>
+
+              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block text-[#F4F3EF] font-semibold">DEFENSIVE_ARCH</span>
+                  <span className="text-[11px] text-[#9FA8A3]">ZERO_TRUST</span>
+                </div>
+              </div>
+
+              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block text-[#F4F3EF] font-semibold">AUTOMATION</span>
+                  <span className="text-[11px] text-[#9FA8A3]">DEVSECOPS_PIPELINES</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Right Narrative Paragraphs & Interests (7 cols) */}
-          <div className="lg:col-span-7 space-y-8 text-[#9a9996] font-light leading-relaxed">
-            {PERSONAL_INFO.aboutBio.map((paragraph, index) => (
-              <p key={index} className="text-base sm:text-lg">
-                {paragraph}
-              </p>
-            ))}
+          {/* Right Column: Narrative Bio & Core Interest Cloud (7 cols) */}
+          <div className="lg:col-span-7 space-y-8">
+            <motion.div variants={itemVariants} className="space-y-6 text-[#929292] font-light leading-relaxed text-base sm:text-lg">
+              {PERSONAL_INFO.aboutBio.map((paragraph, index) => (
+                <p key={index} className="hover:text-[#F4F3EF]/90 transition-colors">
+                  {paragraph}
+                </p>
+              ))}
+            </motion.div>
 
             {/* Core Interest Tag Cloud */}
-            <div className="pt-6 border-t border-white/10">
-              <h3 className="font-mono text-xs uppercase tracking-widest text-[#f4f3ef] mb-4">
+            <motion.div variants={itemVariants} className="pt-8 border-t border-white/10 space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-widest text-[#F4F3EF] flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D52B32]" />
                 CORE TECHNICAL INTERESTS & FOCUS
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 pt-1">
                 {interests.map((item) => (
                   <span
                     key={item}
-                    className="font-mono text-xs px-3.5 py-1.5 rounded-sm border border-white/10 bg-white/[0.02] text-[#f4f3ef] hover:border-[#8a9a5b]/50 hover:text-[#8a9a5b] transition-all"
+                    className="glass-pill font-mono text-xs px-3.5 py-1.5 rounded-sm border border-white/10 text-[#F4F3EF] hover:border-[#D52B32]/50 hover:text-[#D52B32] transition-all cursor-default"
                   >
                     {item}
                   </span>
                 ))}
               </div>
-            </div>
-
+            </motion.div>
           </div>
-
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );
