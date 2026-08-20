@@ -69,8 +69,8 @@ export const About: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
         >
-          {/* Left Column: Title & Telemetry Cards (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Left Column: Title & Telemetry Cards (5 cols) - Sticky anchored on desktop for balanced vertical composition */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-8">
             <motion.div variants={itemVariants} className="space-y-4">
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#F4F3EF] tracking-tight leading-none">
                 {PERSONAL_INFO.aboutTitle}
@@ -81,44 +81,44 @@ export const About: React.FC = () => {
             </motion.div>
 
             {/* Technical Telemetry Glass Badges */}
-            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
-              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
-                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+              <div className="glass-card p-4.5 sm:p-5 rounded-sm border border-white/10 flex items-start gap-3.5 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2.5 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors shrink-0">
                   <Terminal className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-[#F4F3EF] font-semibold">SEC_RESEARCH</span>
-                  <span className="text-[11px] text-[#9FA8A3]">VULN_AUDITING</span>
+                  <span className="block text-[#F4F3EF] font-semibold text-xs sm:text-sm">SEC_RESEARCH</span>
+                  <span className="text-[11px] text-[#9FA8A3] tracking-wide">VULN_AUDITING</span>
                 </div>
               </div>
 
-              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
-                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+              <div className="glass-card p-4.5 sm:p-5 rounded-sm border border-white/10 flex items-start gap-3.5 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2.5 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors shrink-0">
                   <Code2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-[#F4F3EF] font-semibold">DEV_FOCUSED</span>
-                  <span className="text-[11px] text-[#9FA8A3]">SECURE_BACKEND</span>
+                  <span className="block text-[#F4F3EF] font-semibold text-xs sm:text-sm">DEV_FOCUSED</span>
+                  <span className="text-[11px] text-[#9FA8A3] tracking-wide">SECURE_BACKEND</span>
                 </div>
               </div>
 
-              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
-                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+              <div className="glass-card p-4.5 sm:p-5 rounded-sm border border-white/10 flex items-start gap-3.5 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2.5 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-[#F4F3EF] font-semibold">DEFENSIVE_ARCH</span>
-                  <span className="text-[11px] text-[#9FA8A3]">ZERO_TRUST</span>
+                  <span className="block text-[#F4F3EF] font-semibold text-xs sm:text-sm">DEFENSIVE_ARCH</span>
+                  <span className="text-[11px] text-[#9FA8A3] tracking-wide">ZERO_TRUST</span>
                 </div>
               </div>
 
-              <div className="glass-card p-4 rounded-sm border border-white/10 flex items-start gap-3 group hover:border-[#D52B32]/40 transition-colors">
-                <div className="p-2 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors">
+              <div className="glass-card p-4.5 sm:p-5 rounded-sm border border-white/10 flex items-start gap-3.5 group hover:border-[#D52B32]/40 transition-colors">
+                <div className="p-2.5 rounded bg-[#D52B32]/10 text-[#D52B32] group-hover:bg-[#D52B32] group-hover:text-[#F4F3EF] transition-colors shrink-0">
                   <Cpu className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-[#F4F3EF] font-semibold">AUTOMATION</span>
-                  <span className="text-[11px] text-[#9FA8A3]">DEVSECOPS_PIPELINES</span>
+                  <span className="block text-[#F4F3EF] font-semibold text-xs sm:text-sm">AUTOMATION</span>
+                  <span className="text-[11px] text-[#9FA8A3] tracking-wide">DEVSECOPS_PIPELINES</span>
                 </div>
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ export const About: React.FC = () => {
 
           {/* Right Column: Narrative Bio & Core Interest Cloud (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
-            <motion.div variants={itemVariants} className="space-y-6 text-[#929292] font-light leading-relaxed text-base sm:text-lg">
+            <motion.div variants={itemVariants} className="space-y-6 text-[#929292] font-normal leading-relaxed text-base sm:text-lg">
               {PERSONAL_INFO.aboutBio.map((paragraph, index) => (
                 <p key={index} className="hover:text-[#F4F3EF]/90 transition-colors">
                   {paragraph}

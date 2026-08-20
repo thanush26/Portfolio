@@ -5,10 +5,10 @@ import { SECURITY_FOCUS_AREAS } from '../data/portfolioData';
 import { ShieldAlert, Lock, Code2, Cpu, ArrowUpRight } from 'lucide-react';
 
 const iconMap: Record<string, React.ReactNode> = {
-  ShieldAlert: <ShieldAlert className="w-5 h-5 text-[#D52B32]" />,
-  Lock: <Lock className="w-5 h-5 text-[#D52B32]" />,
-  Code2: <Code2 className="w-5 h-5 text-[#D52B32]" />,
-  Cpu: <Cpu className="w-5 h-5 text-[#D52B32]" />,
+  ShieldAlert: <ShieldAlert className="w-5.5 h-5.5 text-[#D52B32]" />,
+  Lock: <Lock className="w-5.5 h-5.5 text-[#D52B32]" />,
+  Code2: <Code2 className="w-5.5 h-5.5 text-[#D52B32]" />,
+  Cpu: <Cpu className="w-5.5 h-5.5 text-[#D52B32]" />,
 };
 
 export const SecurityFocus: React.FC = () => {
@@ -86,11 +86,11 @@ export const SecurityFocus: React.FC = () => {
               <div>
                 {/* Card Top Bar: Number & Icon & Hover Arrow */}
                 <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10 relative z-10">
-                  <span className="font-mono text-3xl font-extrabold text-[#D52B32]/40 group-hover:text-[#D52B32] transition-colors">
+                  <span className="font-mono text-3xl sm:text-4xl font-extrabold text-[#D52B32]/40 group-hover:text-[#D52B32] transition-colors">
                     {block.number}
                   </span>
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded bg-[#D52B32]/10 border border-[#D52B32]/20 group-hover:border-[#D52B32]/50 group-hover:bg-[#D52B32]/20 transition-all">
+                    <div className="p-3.5 rounded bg-[#D52B32]/10 border border-[#D52B32]/20 group-hover:border-[#D52B32]/50 group-hover:bg-[#D52B32]/20 transition-all">
                       {iconMap[block.iconName]}
                     </div>
                     <ArrowUpRight className="w-5 h-5 text-[#929292] group-hover:text-[#F4F3EF] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
@@ -99,26 +99,26 @@ export const SecurityFocus: React.FC = () => {
 
                 {/* Card Heading & Subtitle */}
                 <div className="relative z-10 space-y-2 mb-4">
-                  <h3 className="font-display text-2xl font-bold text-[#F4F3EF] group-hover:text-[#F4F3EF] transition-colors">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#F4F3EF] group-hover:text-[#F4F3EF] transition-colors">
                     {block.title}
                   </h3>
-                  <p className="font-editorial italic text-sm text-[#D52B32]">
+                  <p className="font-editorial italic text-base sm:text-lg text-[#D52B32]">
                     {block.subtitle}
                   </p>
                 </div>
 
-                {/* Description */}
-                <p className="text-[#929292] font-light text-sm sm:text-base leading-relaxed mb-8 relative z-10">
+                {/* Description - Increased readability font size */}
+                <p className="text-[#929292] font-normal text-base sm:text-lg leading-relaxed mb-8 relative z-10">
                   {block.description}
                 </p>
               </div>
 
-              {/* Highlights Pill Tags */}
-              <div className="flex flex-wrap gap-2 pt-6 border-t border-white/10 relative z-10">
+              {/* Highlights Pill Tags - Increased readability text size */}
+              <div className="flex flex-wrap gap-2.5 pt-6 border-t border-white/10 relative z-10">
                 {block.highlights.map((tag) => (
                   <span
                     key={tag}
-                    className="glass-pill font-mono text-[11px] px-3 py-1 rounded-sm text-[#9FA8A3] group-hover:text-[#F4F3EF] group-hover:border-white/20 transition-colors"
+                    className="glass-pill font-mono text-xs px-3.5 py-1.5 rounded-sm text-[#9FA8A3] group-hover:text-[#F4F3EF] group-hover:border-white/20 transition-colors"
                   >
                     {tag}
                   </span>
